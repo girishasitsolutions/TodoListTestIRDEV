@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+Front-End Developer Exercise BY IRDEV
+=======================================
+Scope: Need to developer a SPA for users can signup and signin with local storage.
+Once user register and login to account, he can manage (CURD) todo items with title and description. filters with drug/drop should be there!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Current State: 
+1. Sign-up, login and logout flow that asks for a username and password is completed, validation for unique email applied on new user register.
+2. Login
+3. Add & delete Todo items
+4. Application UI are build on Bootstrap UI, User information store in redux store then apply persist for browser session, Users todo items store in redux store. 
 
-## Available Scripts
+Pending: 
+1. Shorting, filters, drug-drop filter not completed due to short of time.
 
-In the project directory, you can run:
+Work flow:
 
-### `npm start`
+1. Inital System Requirment to install application
+Node -v = 16.14.0
+NPM -v = 8.3.1
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. Create App & Install dependency
+npx create-react-app todo
+npm install --save react-router-dom redux react-redux redux-persist
+npm start 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+3. Create folder structure (components, containers, actions, reducers) & components files (Login, Signup, Home, Logout)
 
-### `npm test`
+4. Setup routes in App.js and link all components in proper way to navigate then apply Bootstrap UX on all then pages. Copy js & css bootstrap files in public/index.html
+Copy bootstrap form element from offical website in signup, login page and create a view on Home page. Then replace tags according JSX syntax ex. class to className, <a> to <Link>. It took approx 3 hrs to create layouts
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+5. Now we have a working copy of website without user events so now we will decide for all possible actions so that we can build our application state management system. 
 
-### `npm run build`
+6. Create redux all required files in actions, containers, reducers folder then
+create actions
+Write Reducers
+Link react and redux via containers
+Apply store on APP/Main component using provider wrapper
+Apply Persist Storage wrapper so that state can reload on page refersh.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+7. Create forms using useForm hook for that "Install npm i react-hook-form --save" and install uuidv4 for unique ID
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+8. Signin users information manage via localStorage (variable name is token)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+9. User information will store using userOperation reducers and todo list will manage by todoOperation. We assign userID in todo list to identify users todo list stored via todoOperation actions.
 
-### `npm run eject`
+10. Project has been uploaded to a publicly accessible Github repo.
+https://github.com/girishasitsolutions/TodoListTestIRDEV.git
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+11. To run build on server use "npm install -g serve" && "serve -s build". It will open development server and build project for testing.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Note: This application is build on window, on github node_modules & dependencies are not uploaded so please run "npm install" on root folder by downloading application. 

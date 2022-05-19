@@ -102,7 +102,7 @@ export default function Login(props) {
             )}
 
             {errors.email?.type === "pattern" && (
-              <span role="alert">{errors.email.message}</span>
+              <small className="text-danger" role="alert">{errors.email.message}</small>
             )}
           </div>
           <div className="col-md-12 mb-4 form-group form-group-icon">

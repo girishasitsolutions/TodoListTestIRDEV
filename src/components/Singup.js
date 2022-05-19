@@ -68,7 +68,7 @@ export default function Singup(props) {
         <br />
         <h4 className="mt-5 mb-3">Register Now!</h4>
 
-        {isDup!=0 && (
+        {isDup != 0 && (
           <div className="alert alert-danger" role="alert">
             Email is already exist in database! Try again!
           </div>
@@ -127,7 +127,7 @@ export default function Singup(props) {
             )}
 
             {errors.email?.type === "pattern" && (
-              <span role="alert">{errors.email.message}</span>
+              <small className="text-danger" role="alert">{errors.email.message}</small>
             )}
           </div>
 
@@ -136,14 +136,24 @@ export default function Singup(props) {
               Password
             </label>
             <input
-              {...register("password", { required: true })}
+              {...register("password", {
+                required: true,
+                minLength: 6,
+                maxLength: 12,
+              })}
               type="password"
               className="form-control  form-control-lg"
               placeholder="Password"
               autoComplete="none"
             />
             {errors.password && (
-              <small className="text-danger">Password is required</small>
+              <small className="text-danger">Password is required </small>
+            )}
+            {errors.password?.type === "maxLength" && (
+              <small className="text-danger"> Max length exceeded </small>
+            )}
+            {errors.password?.type === "minLength" && (
+              <small className="text-danger"> Min length is 6 digits</small>
             )}
           </div>
           <div className="col-12">

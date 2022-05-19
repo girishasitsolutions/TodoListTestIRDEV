@@ -39,13 +39,12 @@ export default function Home(props) {
 
       /*------ Only loggedin users Todo should fetch ---------*/
       // const userTodos = props.getUserTodoHandler(userDetail.ID)
-      let filterUsersTodo = props.data.todoOperation;
-      // console.log(filterUsersTodo) ;
+      let filterUsersTodo = props.data.todoOperation; 
       let newList = filterUsersTodo.filter((item, index) => {
-        return JSON.parse(item).userID !== userDetail.ID;
-      });
-
+        return JSON.parse(item).userID == userDetail.ID;
+      }); 
       setTodoItem(newList);
+      
     }
   }, [props.data.todoOperation]);
 
